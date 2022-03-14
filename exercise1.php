@@ -1,12 +1,12 @@
 <?php
 
 function checkValidString($str){
-    $after = 'after';
-    $before = 'before';
+    $after = "after";
+    $before = "before";
     if(empty($str)){
         return true;
     }else{
-        if(strlen($str) >= 50 && strpos($str,$after) === false || strpos($str, $before) === true){
+        if(strlen($str) >= 50 && strpos($str,$after) === false || strpos($str, $before) !==false){
             return true;
         }else{
             return false;
@@ -31,6 +31,7 @@ function printCheck(){
       echo "<br/>Chuỗi không hợp lệ</br>";
   }
 }
+
 printCheck();
 
 ?>
