@@ -10,7 +10,7 @@ function checkValidString($str){
     if(empty($str)){
         return true;
     }else{
-        if(strlen($str) >= 50 && strpos($str,$after) === false || strpos($str, $before) === true){
+        if(strlen($str) >= 50 && strpos($str,$after) === false || strpos($str, $before) !== true){
             return true;
         }else{
             return false;
