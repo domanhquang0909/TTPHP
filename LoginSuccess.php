@@ -3,7 +3,6 @@ session_start();
 ?>
 <?php
 
-
 if(isset($_POST['save-session'])){
   session_destroy();
   header('location: Login.php '); die();

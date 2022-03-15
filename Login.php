@@ -2,40 +2,6 @@
 
 session_start();
 ?>
-<?php
-if (isset($_POST['email'])) {
-    $_SESSION["email"] = $_POST['email'];
-}
-if (isset($_POST['password'])) {
-    $_SESSION["password"] = $_POST['password'];
-}
-$email = "";
-$password = "";
-if (isset($_POST['email'])) {
-    $email = $_POST['email'];
-}
-if (isset($_POST['password'])) {
-    $password = $_POST['password'];
-}
-
-if (!empty($email) && !empty($password)) {
-
-    if (strlen($email) > 255) {
-        echo ' Email phải nhỏ hơn 255 ký tự';
-    }
-    if (strlen($password) < 6 || strlen($password) > 50) {
-        echo '<font style="color:red;"><h2> Mật Khẩu có độ dài từ 3 đến 50 ký tự </h2></font>';
-        
-    } elseif ($email == 'manhquang@gmail.com' && $password == 'manhquang123') {
-        header('location: LoginSuccess.php ');
-        die();
-    } else {
-        echo '<font style="color:red;"<h2> Đăng nhập thất bại </h2></font>';
-    }
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,9 +12,30 @@ if (!empty($email) && !empty($password)) {
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 </head>
-
 <body>
 
+
+<?php
+
+if(isset($_POST['btn_submit'])){
+$email = $_POST['email'];
+$password = $_POST['password'];
+
+}
+if (!empty($email) && !empty($password)) {
+    if (strlen($email) > 255) {
+        echo ' Email phải nhỏ hơn 255 ký tự ';
+    }
+    if (strlen($password) < 6 || strlen($password) > 50) {
+        echo '<font style="color:red;"><h2> Mật Khẩu có độ dài từ 3 đến 50 ký tự </h2></font>';
+    } elseif ($email == 'manhquang@gmail.com' && $password == 'manhquang123') {
+        header('location: LoginSuccess.php ');
+        die();
+    } else {
+        echo '<p style="color:red;"<h3> Đăng nhập thất bại </h3></p>';
+    }
+}
+?>
     <form style="margin-top: 20px;" action="" method="post">
         <div class="container">
             <div class="row">
@@ -71,7 +58,7 @@ if (!empty($email) && !empty($password)) {
                             <input  type="checkbox"> Remember me
                         </div>
                         <div class="panel-body">
-                            <button type="submit" class="btn btn-primary btn-block">Đăng Nhập</button>
+                            <button type="submit" name="btn_submit" class="btn btn-primary btn-block">Đăng Nhập</button>
                         </div>
                     </div>
                 </div>
