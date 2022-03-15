@@ -24,12 +24,13 @@ if (!empty($email) && !empty($password)) {
         echo ' Email phải nhỏ hơn 255 ký tự';
     }
     if (strlen($password) < 6 || strlen($password) > 50) {
-        echo '<font style="color:red; text-align: center;"><h2> Mật Khẩu có độ dài từ 3 đến 50 ký tự </h2></font>';
+        echo '<font style="color:red;"><h2> Mật Khẩu có độ dài từ 3 đến 50 ký tự </h2></font>';
+        
     } elseif ($email == 'manhquang@gmail.com' && $password == 'manhquang123') {
         header('location: LoginSuccess.php ');
         die();
     } else {
-        echo '<font style="color:red; text-align: center;"><h2> Đăng nhập thất bại </h2></font>';
+        echo '<font style="color:red;"<h2> Đăng nhập thất bại </h2></font>';
     }
 }
 ?>
