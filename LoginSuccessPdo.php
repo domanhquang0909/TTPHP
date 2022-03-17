@@ -4,9 +4,9 @@ session_start();
 <?php
 
 if(isset($_POST['save-session'])){
-  session_destroy();
-  header('location: Login.php '); die();
-}
+    session_destroy();
+    header('location: LoginPdo.php '); die();
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
