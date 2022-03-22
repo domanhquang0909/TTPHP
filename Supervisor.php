@@ -55,8 +55,8 @@ class UglyBoss extends Supervisor implements Boss{
      }
 }
 
-$easyBoss = new EasyBoss();
-$uglyBoss = new UglyBoss();
+$easyBoss =new EasyBoss();
+$uglyBoss =new UglyBoss();
 
 $easyBoss->saySlogan('Do NOT push anything to master branch before reviewed by supervisor(s)');
 
