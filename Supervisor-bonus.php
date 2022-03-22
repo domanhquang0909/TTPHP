@@ -63,8 +63,8 @@ class UglyBoss extends Supervisor implements Boss{
      }
     }
  
- $easyBoss = new EasyBoss();
- $uglyBoss = new UglyBoss();
+ $easyBoss =new EasyBoss();
+ $uglyBoss =new UglyBoss();
   
  echo 'I am ' . $easyBoss->defindYourSelf(); 
  echo "<br>";
