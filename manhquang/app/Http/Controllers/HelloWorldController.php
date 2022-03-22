@@ -6,10 +6,7 @@ use Illuminate\Http\Request;
 
 class HelloWorldController extends Controller
 {
-
-    public function show(){
-        return view('hello_world.show');
-     }
-
+    public function index(){
+       return view('register');
+    }
 }
-?>
