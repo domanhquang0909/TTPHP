@@ -11,9 +11,4 @@
 |
 */
 
-
-Route::get('register','RegisterController@register');
-Route::post('register','RegisterController@post_register');
-
-
-Route::get('list','RegisterController@list');
+Route::get('hello-world','HelloWorldController@show');
