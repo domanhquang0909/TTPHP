@@ -47,7 +47,7 @@
                 <tbody>
 
                     @foreach($item as $table)
-                    <tr class="odd gcradeX">
+                    <tr style="text-alight:left";>
                         <td>{{$table->id}}</td>
                         <td>{{$table->mail_address}}</td>
                         <td>{{$table->name}}</td>
