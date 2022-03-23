@@ -60,7 +60,7 @@
                             <label for="">Nhập lại mật khẩu:</label>
 
                             <input type="password" name="password_confirm" class="form-control" value="" required="required" title="">
-                            @if ($errors->any())
+                            @if ($errors->get('password_confirm'))
                                          <div class="alert alert-danger">
                                         @foreach ($errors->get('password_confirm') as $message)
                                           <label for="floatingInputInvalid">{{$message}}</label>
