@@ -45,9 +45,11 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                          <?php $i = 0; $arrange =  $item->firstItem(); ?>
                     @foreach($item as $table)
-                    <tr style="text-alight:left";>
+                    <tr class="odd gcradeX">
+                        <td> {{ $arrange + $i }}
+                            <?php $i++; ?></td>
                         <td>{{$table->id}}</td>
                         <td>{{$table->mail_address}}</td>
                         <td>{{$table->name}}</td>
