@@ -25,13 +25,13 @@ class CreateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'mail_address'=> 'required|max:100',
+            'mail_address'=> 'required|email|max:100',
             'mail_address' => Rule::unique('users')->ignore($this->id),
-            'password'=>'required|min:6|max:20',
+            'password'=>'required|min:6|max:255',
             'password_confirm'=>'required|same:password',
             'name'=>'required|min:3|max:255',
             'address'=>'max:255',
-            'phone'=>'max:15'
+            'phone'=>'alpha_num|max:15'
         ];
 
 
