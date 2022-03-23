@@ -72,19 +72,37 @@
                             <label for="">Họ tên:</label>
 
                             <input type="text" name="name" class="form-control" value="" required="required" title="">
-
+                             @if ($errors->get('name'))
+                                         <div class="alert alert-danger">
+                                        @foreach ($errors->get('name') as $message)
+                                          <label for="floatingInputInvalid">{{$message}}</label>
+                                        @endforeach
+                                         </div>
+                                        @endif
                         </div>
                         <div class="panel-body">
                             <label for="">Địa chỉ:</label>
 
                             <input type="address" name="address" class="form-control" value="" required="required" title="">
-
+                                    @if ($errors->get('address'))
+                                         <div class="alert alert-danger">
+                                        @foreach ($errors->get('address') as $message)
+                                          <label for="floatingInputInvalid">{{$message}}</label>
+                                        @endforeach
+                                         </div>
+                                        @endif
                         </div>
                         <div class="panel-body">
                             <label for="">Số điện thoại:</label>
 
                             <input type="text" name="phone" class="form-control" value="" required="required" title="">
-
+                                @if ($errors->get('phone'))
+                                         <div class="alert alert-danger">
+                                        @foreach ($errors->get('phone') as $message)
+                                          <label for="floatingInputInvalid">{{$message}}</label>
+                                        @endforeach
+                                         </div>
+                                        @endif
                         </div>
                         <div class="panel-body">
 
