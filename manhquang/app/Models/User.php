@@ -26,4 +26,10 @@ protected $fillable = [
       $req->session()->flash('success','Thêm mới người dùng thành công');
 
     }
+    public function scopeSearch($sea){
+        if( $item = request()->key){
+            $sea= $sea->where('name','like','%'.$item.'%')->orWhere('mail_address','like','%'.$item.'%')->orWhere('phone',$item);
+               }
+               return $sea;
+    }
 }

@@ -11,9 +11,13 @@ class RegisterController extends Controller
     public function __construct(User $user){
         $this->user = $user;
     }
+    function index(){
+            dd(request()->key);
+
+    }
     public function register()
     {
-        return view('register');
+        return view('register',['title'=>'Thêm User']);
     }
 
     public function post_register(CreateUserRequest $req){
@@ -22,8 +26,10 @@ class RegisterController extends Controller
     }
     public function list(){
 
-    $item= User::select('id','mail_address','name','address','phone')->orderBy('mail_address','asc')->paginate(20);
+    $item= User::select('id','mail_address','name','address','phone')->orderBy('mail_address','asc')->search()->paginate(20);
 
-     return view('list',compact('item'));
+     return view('list',['title'=>'Danh sách user'],compact('item'));
     }
+
+
 }

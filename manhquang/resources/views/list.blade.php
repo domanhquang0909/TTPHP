@@ -1,78 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.default')
+@section('contents')
 
 
 
-    <!-- Latest compiled and minified CSS & JS -->
-    <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+</br>
+    <h4 style="margin-left: 15px;">STT {{ $item->firstItem() }} -> {{ $item->lastItem() }}</h4>
+
+            <form action=""  role="search">
+                <div class="panel-body">
+                    <input type="text" name="key" class="form-control" id="" placeholder="Tìm kiếm user">
+
+                    <button type="submit" style="margin-top: 5px;" class="btn btn-primary">Tìm kiếm</button>
+                </div>
 
 
-</head>
 
-<body>
+            </form>
 
+            @if(session()->has('success'))
+          <div class="alert alert-success">
+          {{ session()->get('success') }}
+         </div>
+           @endif
+      <div class="panel panel-primary">
 
-
-    <div class="container">
-
-        <div class="row">
-
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
-                <form action="" method="POST" role="form">
-                    <legend>Danh sách User </legend>
-                    @if(session()->has('success'))
-                  <div class="alert alert-success">
-                  {{ session()->get('success') }}
-                 </div>
-                   @endif
-            </div>
-            <h4>STT {{ $item->firstItem() }} -> {{ $item->lastItem() }}</h4>
-
-            <table class="table table-hover">
-                <thead >
-                    <tr align="center">
-                        <th>STT</th>
-                        <th>Email</th>
-                        <th>Họ tên</th>
-                        <th>Địa chỉ</th>
-                        <th>Số điện thoại</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-
-                    @foreach($item as $table)
-                    <tr class="odd gcradeX">
-                        <td>{{$table->id}}</td>
-                        <td>{{$table->mail_address}}</td>
-                        <td>{{$table->name}}</td>
-                        <td>{{$table->address}}</td>
-                        <td>{{$table->phone}}</td>
+            <div class="panel-body">
 
 
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-               <button ><a href="register">Thêm</a></button>
-            {{ $item->render() }}
-        </div>
+    <table class="table table-hover">
+        <thead >
+            <tr align="center">
+                <th>STT</th>
+                <th>Email</th>
+                <th>Họ tên</th>
+                <th>Địa chỉ</th>
+                <th>Số điện thoại</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        <?php $i = 0; $arrange =  $item->firstItem(); ?>
+            @foreach($item as $table)
+            <tr class="odd gcradeX">
+                <td> {{ $arrange + $i }}
+                    <?php $i++; ?></td>
+                <td>{{$table->mail_address}}</td>
+                <td>{!!\App\Helpers\fecade::toUpperCase($table->name)   !!}</td>
+                <td>{{$table->address}}</td>
+                <td>{{$table->phone}}</td>
+
+
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    <div class="form-group">
+
+        <button ><a href="register">Thêm</a></button>
     </div>
-
-    </form>
-
-
-
+    {{ $item->render() }}
+</div>
+</div>
 
 
 
-    <script src="//code.jquery.com/jquery.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-</body>
 
-</html>
+
+
+
+
+
+
+
+ @endsection
