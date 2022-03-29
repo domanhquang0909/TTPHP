@@ -11,7 +11,7 @@ class RegisterController extends Controller
     public function __construct(User $user){
         $this->user = $user;
     }
-    function index(){
+    public function index(){
             dd(request()->key);
 
     }
