@@ -28,7 +28,7 @@ protected $fillable = [
     }
     public function scopeSearch($sea){
         if( $item = request()->key){
-            $sea= $sea->where('name','like','%'.$item.'%')->orWhere('mail_address','like','%'.$item.'%')->orWhere('phone',$item);
+            $sea= $sea->where('name','like','%'.$item.'%')->orWhere('mail_address','like','%'.$item.'%')->orWhere('address','like','%'.$item.'%')->orWhere('phone',$item);
                }
                return $sea;
     }
