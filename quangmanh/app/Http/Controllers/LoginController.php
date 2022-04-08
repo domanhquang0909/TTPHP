@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
      use ThrottlesLogins;
-    protected $maxAttempts=1; // so lan user co the dang nhap sai
-    protected $decayMinutes = 60; // Thoi gian nguoi dung chan tinh bang giay
+    protected $maxAttempts=5; 
+    protected $decayMinutes = 60; 
 
 
     public function index(){
