@@ -12,8 +12,13 @@ protected $fillable = [
         'name',
         'address',
         'phone',
-        'role'
+        'role',
+        'classroom_id'
     ];
+    public function classrooms()
+    {
+        return $this->belongsTo('App\Models\Classrooms','classroom_id','id');
+    }
     public function checkRegister($req)
     {
       User::create([
@@ -22,7 +27,8 @@ protected $fillable = [
       'name'=>$req->input('name'),
       'address'=> $req->input('address'),
       'phone'=> $req->input('phone'),
-      'role'=> $req->input('role')
+      'role'=> $req->input('role'),
+      'classroom_id'=> $req->input('classroom_id')
 
       ]);
       $req->session()->flash('success','Thêm mới người dùng thành công');
@@ -30,8 +36,16 @@ protected $fillable = [
     }
     public function scopeSearch($sea){
         if( $item = request()->key){
-            $sea= $sea->where('name','like','%'.$item.'%')->orWhere('mail_address','like','%'.$item.'%')->orWhere('address','like','%'.$item.'%')->orWhere('phone',$item);
+            $sea= $sea->where('name','like','%'.$item.'%')->orWhere('mail_address','like','%'.$item.'%')->orWhere('address','like','%'.$item.'%')->orWhere('phone',$item)->orWhere('classroom_id',$item);
                }
                return $sea;
+    }
+    public function scopeClassSearch($sea)
+    {
+       if( $search = request()->class)
+       {
+          $sea = $sea->orwhere('classroom_id',$search);
+        }
+        return $sea;
     }
 }

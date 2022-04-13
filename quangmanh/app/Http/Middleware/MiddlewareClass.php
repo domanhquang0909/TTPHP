@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Middleware;
-
-use Closure;
 use Illuminate\Support\Facades\Auth;
+use Closure;
 
-class AdminLoginMiddleware
+class MiddlewareClass
 {
     /**
      * Handle an incoming request.
@@ -19,10 +18,14 @@ class AdminLoginMiddleware
         if(Auth::check()){
 
 
-            return $next($request);
+            $class = Auth::User();
+            if($class->classroom_id < 5 )
+            {
+                return $next($request);
+            }
+            return redirect('login');
             }else{
                 return redirect('login');
             }
     }
-
 }

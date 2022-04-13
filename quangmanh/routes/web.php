@@ -27,11 +27,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('logout','HomeController@logout');
 
 Route::middleware('adminLogin')->group(function(){
+    Route::middleware('classable')->group(function(){
     Route::get('list','RegisterController@list')->name('list');
       Route::middleware('userLogin')->group(function(){
         Route::get('addUsers','UserController@addUsers');
         Route::post('addUsers','UserController@post_addUsers');
            });
+    });
     });
 
 

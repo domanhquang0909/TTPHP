@@ -9,6 +9,7 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'name'=> $faker->name,
         'address'=> $faker->address,
         'phone' => '0326032081',
-        "role"=>'2'
+        "role"=>'2',
+        'classroom_id'=>$faker->numberBetween(1,10)
     ];
 });

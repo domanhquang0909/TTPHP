@@ -82,6 +82,16 @@
                         </div>
                         <br>
                         <div class="panel-body">
+                                <label>lớp</label>
+                                <select class="form-control" name="classroom_id" >
+                                    @foreach($select as $table)
+                                    <option value="{{$table->id}}">{{$table->name}}</option>
+                                   @endforeach
+                                </select>
+
+                            </div>
+                        <br>
+                        <div class="panel-body">
                                 <label>Quyền :</label>
                                 <label class="radio-inline">
                                     <input name="role" value="1" checked="" type="radio">Quản trị viên

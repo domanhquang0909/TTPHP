@@ -104,7 +104,17 @@
                                          </div>
                                         @endif
                         </div>
-                      
+
+                        <div class="panel-body">
+                                <label>lớp</label>
+                                <select class="form-control" name="classroom_id" >
+                                    @foreach($select as $table)
+                                    <option value="{{$table->id}}">{{$table->name}}</option>
+                                   @endforeach
+                                </select>
+
+                            </div>
+
                         <div class="panel-body">
 
 

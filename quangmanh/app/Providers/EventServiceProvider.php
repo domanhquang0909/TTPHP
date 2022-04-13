@@ -16,8 +16,8 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Event' => [
             'App\Listeners\EventListener',
         ],
-        'App\Events\EventList' => [
-            'App\Listeners\RgsEventListener',
+        'App\Events\RegisteredUser' => [
+            'App\Listeners\SendEmailWelcomeListener',
         ]
     ];
 

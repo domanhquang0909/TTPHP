@@ -22,9 +22,6 @@ class LoginController extends Controller
         return view('auth.login',['title'=>'Đăng nhập']);
     }
 
-
-
-
     public function post_login(Request $req){
 
 
@@ -32,9 +29,6 @@ class LoginController extends Controller
                             'mail_address'=>'required|email:filter',
                             'password'=>'required',
            ]);
-
-
-
            if(Auth::attempt(['mail_address'=> $req->input('mail_address'),'password'=>$req->input('password')],$req->input('remember')))
         {
             return redirect()-> route('list');
